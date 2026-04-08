@@ -59,10 +59,11 @@ void init(map sheet,int size)
 void finaldump(map sheet,int size)
 {
     int x,y;
-    printf("%5d%5d\n",size,size);
+    // printf("%5d%5d\n",size,size);
     for (y=0; y < size; y++) {
-        for (x = 0; x < size; x++)
-            printf("%4d",sheet[x][y]);
+        for (x = 0; x < size-1; x++)
+            printf("%d,",sheet[x][y]);
+        printf("%d",sheet[x][y]);
         putchar('\n');
     }
 }

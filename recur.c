@@ -8,17 +8,17 @@ void recur(map sheet,rect* st,int zr)
     int xrange,yrange,zrange,x,y,z;
     float dy = gprand(); float dx = gprand(); float dz = gprand();
 
-    debug("recur zr=%d\n", zr);
-    debug("tl: x=%d y=%d\n", st->tl.x, st->tl.y);
-    debug("tr: x=%d y=%d\n", st->tr.x, st->tr.y);
-    debug("bl: x=%d y=%d\n", st->bl.x, st->bl.y);
-    debug("br: x=%d y=%d\n", st->br.x, st->br.y);
+    // debug("recur zr=%d\n", zr);
+    // debug("tl: x=%d y=%d\n", st->tl.x, st->tl.y);
+    // debug("tr: x=%d y=%d\n", st->tr.x, st->tr.y);
+    // debug("bl: x=%d y=%d\n", st->bl.x, st->bl.y);
+    // debug("br: x=%d y=%d\n", st->br.x, st->br.y);
 
     xrange = diff(st->tl.x,st->tr.x);
     yrange = diff(st->tl.y,st->bl.y);
     zrange = (xrange * yrange) / 2;
 
-    debug("new ranges: x=%d y=%d z=%d\n", xrange, yrange, zrange);
+    // debug("new ranges: x=%d y=%d z=%d\n", xrange, yrange, zrange);
 
     x = (int) xrange * dx;
     y = (int) yrange * dy;

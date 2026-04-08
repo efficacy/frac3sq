@@ -33,7 +33,7 @@ int main() {
     times = atoi(buf);
 #endif
 
-debug("seed=%d, size=%d, times=%d\n", seed, size, times);
+// debug("seed=%d, size=%d, times=%d\n", seed, size, times);
     setup(worksheet,start,size);
     while (times--) {
         recur(worksheet,start,size);
