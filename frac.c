@@ -8,7 +8,7 @@ int main(int argc, char** argv) {
     map worksheet;
     rect* start = (rect*) malloc(sizeof(rect) + 1);
 
-    tellme("--------frac3 v3.0 (rect)--------\n");
+    tellme("--------frac3 v3.0 (2026)--------\n");
 
     if (argc > 1) {
     	size = atoi(argv[1]);
@@ -48,7 +48,7 @@ int main(int argc, char** argv) {
 // debug("seed=%d, size=%d, times=%d\n", seed, size, times);
     setup(worksheet,start,size);
     while (times--) {
-        recur(worksheet,start,size);
+        create(worksheet,start,size);
         finaldump(worksheet,size);
     }
 

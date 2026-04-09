@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct { int x, y, z; } position;
+typedef struct { int x, y; } position;
 typedef struct { position tl, tr, bl, br; } rect;
 typedef int** map;
 
@@ -12,5 +12,3 @@ typedef int** map;
 #endif
 
 #define tellme(something) fprintf(stderr, something)
-
-extern float gprand();

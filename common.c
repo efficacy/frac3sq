@@ -2,6 +2,10 @@
 
 #define RANDFUDGE 10501
 
+int height(map sheet, position point) {
+	return sheet[point.x][point.y];
+}
+
 float gprand() {
     return ((rand() % RANDFUDGE) / (float) RANDFUDGE);
 }
@@ -21,9 +25,9 @@ int interp(int a, int b, float delta)
     return ((int)(delta * diff(a,b) + min(a,b)));
 }
 
-void output(map sheet,position point)
+void output(map sheet, position point, int z)
 {
-    sheet[point.x][point.y] += point.z;
+    sheet[point.x][point.y] += z;
 }
 
 map allocate(int size)
@@ -45,8 +49,7 @@ rect* mkrect(rect *res, position tl, position tr,position bl,position br)
     return (res);
 }
 
-void init(map sheet,int size)
-{
+void init(map sheet,int size) {
     int x,y;
 
     for (y = 0; y < size; y++) {
@@ -71,8 +74,8 @@ void finaldump(map sheet,int size)
 void setup(map sheet,rect* st,int size)
 {
     init(sheet,size);
-    st->tl.x = 1; st->tl.y = 1; st->tl.z = 1;
-    st->tr.x = size-1; st->tr.y = 1; st->tr.z = 1;
-    st->bl.x = 1; st->bl.y = size-1; st->bl.z = 1;
-    st->br.x = size-1; st->br.y = size-1; st->br.z = 1;
+    st->tl.x = 0; st->tl.y = 0;
+    st->tr.x = size-1; st->tr.y = 0;
+    st->bl.x = 0; st->bl.y = size-1;
+    st->br.x = size-1; st->br.y = size-1;
 }
