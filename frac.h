@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 typedef struct { int x, y; } position;
-typedef struct { position tl, tr, bl, br; } rect;
+typedef struct { position tl, /*tr, bl,*/ br; } rect;
 typedef int** map;
 
 #ifdef DEBUG

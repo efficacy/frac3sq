@@ -5,8 +5,6 @@
 int main(int argc, char** argv) {
     int seed, size, times;
     char buf[BUFLEN];
-    map worksheet;
-    rect* start = (rect*) malloc(sizeof(rect) + 1);
 
     tellme("--------frac3 v3.0 (2026)--------\n");
 
@@ -20,7 +18,6 @@ int main(int argc, char** argv) {
         size = atoi(buf);
 #endif
     }
-    worksheet = allocate(size);
 
     if (argc > 2) {
     	size = atoi(argv[2]);
@@ -43,13 +40,17 @@ int main(int argc, char** argv) {
 	    seed = atoi(buf);
 #endif
     }
-    srand(seed);
 
-// debug("seed=%d, size=%d, times=%d\n", seed, size, times);
-    setup(worksheet,start,size);
+    srand(seed);
+    map sheet = allocate(size);
+
+// debug("main: seed=%d, size=%d, times=%d\n", seed, size, times);
+    rect st = setup(sheet,size);
+// debug("after setup: st=%d,%d-%d,%d\n", st.tl.x,st.tl.y, st.br.x,st.br.y);
+
     while (times--) {
-        create(worksheet,start,size);
-        finaldump(worksheet,size);
+        create(sheet,st,size);
+        dump(sheet,st,"final");
     }
 
     return 0;
